@@ -51,8 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
             img: 'images/pear.png'
         },
     ]
+cardArray.sort(() => 0.5 - Math.random())
 
     const grid = document.querySelector('.grid')
+    const resultDisplay = document.querySelector('#result')
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
@@ -81,6 +83,12 @@ function checkForMatch() {
         cards[optionOneId].setAttribute('src', 'images/blank.png')
         cards[optionTwoId].setAttribute('src', 'images/blank.png')
         alert('Sorry, try again')
+    }
+    cardsChosen = []
+    cardsChosenId = []
+    resultDisplay.textContent = cardsWon.length
+    if (cardsWon.length === cardsArray.length/2) {
+        resultDisplay.textContent = 'Congratulations! Yon WON'
     }
   }
 
